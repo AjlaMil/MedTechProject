@@ -23,6 +23,13 @@ functions:
           path: /getProducts/{id}
           method: get
 
+  addToCart:
+    handler: functions/addToCart.handler
+    events:
+      - httpApi:
+          path: /addToCart
+          method: post
+
   createProduct:
     handler: functions/createProduct.handler
     events:
@@ -57,13 +64,6 @@ functions:
       - httpApi:
           path: /signIn
           method: get        
-
-  addToCart:
-    handler: functions/addToCart.handler
-    events:
-      - httpApi:
-          path: /addToCart
-          method: post
   
   checkout:
     handler: functions/checkout.handler

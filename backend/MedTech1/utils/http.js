@@ -24,6 +24,17 @@ const error = (message = "Internal server error.") => ({
   },
 })
 
+const notFound = (message = "Item not found.") => ({
+  
+  statusCode: 404,
+  body: JSON.stringify({
+    message: message,
+  }), 
+  headers: {
+    "content-type": "application/json",
+  },
+})
+
 const unprocessableEntity = () => ({
   statusCode: 422,
   body: JSON.stringify({
@@ -38,5 +49,6 @@ const unprocessableEntity = () => ({
 module.exports = {
     ok,
     error,
+    notFound,
     unprocessableEntity
 }
