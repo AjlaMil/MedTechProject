@@ -1,0 +1,38 @@
+module.exports = [
+  {
+    id: 1,
+    name: "Amy Jones",
+    birthday: "01.01.1980",
+    email: "user1@example.com",
+    address: "Main Street 12, Denver",
+    paymentMethod: "credit card",
+    cardNumber: "123456789",
+  },
+  {
+    id: 2,
+    name: "Eric Davies",
+    birthday: "01.01.1983",
+    email: "user2@example.com",
+    address: "Main Street 14, Denver",
+    paymentMethod: "credit card",
+    cardNumber: "123456788",
+  },
+  {
+    id: 3,
+    name: "James Jones",
+    birthday: "01.01.1980",
+    email: "user1@example.com",
+    address: "Main Street 12, Denver",
+    paymentMethod: "credit card",
+    cardNumber: "123456789",
+  },
+  {
+    id: 4,
+    name: "Sandra Kelly",
+    birthday: "01.01.1986",
+    email: "user1@example.com",
+    address: "Main Street 13, Denver",
+    paymentMethod: "credit card",
+    cardNumber: "123456739",
+  },
+];

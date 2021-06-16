@@ -1,0 +1,12 @@
+{
+  "name": "MedTech-frontend",
+  "displayName": "MedTech-frontend",
+  "expo": {
+    "name": "MedTech-frontend",
+    "slug": "MedTech-frontend",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
