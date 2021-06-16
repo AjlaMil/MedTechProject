@@ -1,20 +1,31 @@
 import React from 'react';
-import { View, Text, StyleSheet, KeyboardAvoidingView, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image } from 'react-native';
 import colors from '../config/colors';
 import { AntDesign } from '@expo/vector-icons';
 
 const Profile = () => {
     return (
         <KeyboardAvoidingView style={styles.container} behaviour="padding">
+        <View style={styles.topBar}>
+            <Image 
+                style={styles.tinyLogo}
+                source={require('../assets/Logo.png')}
+            />
+            <View style={{fontWeight: "bold" , color: colors.darkGrey}}>
+                MedTech
+            </View>
+        </View>
         <View style={styles.headercontainer}>
               <View style={styles.userlogo}>
-                  <AntDesign name="user" size={100} color={colors.primary} />
+                  <AntDesign name="bank" size={100} color={colors.primary} />
               </View>
               <View style={styles.username}>
-                  <Text style={{fontWeight: 'bold', fontSize: 25, color: colors.primary, paddingVertical: 20}}>User Name</Text>
+                  <Text style={{fontWeight: 'bold', fontSize: 25, color: colors.white, paddingVertical: 20}}>Comapany Name</Text>
               </View>
               <View style={styles.userinfo}>
-                  <Text style={styles.textinfo}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor vel turpis ut aliquet. Nullam elit elit, imperdiet vitae ultrices sed, porttitor in erat. In porta massa at tempus consectetur. In vehicula, sapien in blandit tincidunt, metus libero fringilla risus, in vehicula leo sem in ex.</Text>
+                  <Text style={styles.textinfo}>Company City:</Text>
+                  <Text style={styles.textinfo}>E-Mail:</Text>
+                  
               </View>
         </View>
     </KeyboardAvoidingView>
@@ -24,9 +35,8 @@ const Profile = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
         alignItems: "center",
-        backgroundColor: colors.white
+        backgroundColor: colors.primary
     },
     title: {
         fontSize: 28,
@@ -52,7 +62,8 @@ const styles = StyleSheet.create({
         borderColor: 'silver'
 
     },
-    textinfo:{
+    userinfo:{
+        width: "100%",
         fontSize: 15,
         paddingHorizontal: 25,
         backgroundColor: "white",
@@ -61,7 +72,27 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         borderWidth: 2,
         borderColor: 'silver'
-    }
+    },
+    textinfo: {
+        fontSize: 15,
+        fontWeight: "600",
+        color: colors.darkGrey,
+    },
+    tinyLogo: {
+        width: 50,
+        height: 50,
+    },
+    topBar:{
+        alignSelf: 'stretch',
+        backgroundColor: colors.white,
+        flexWrap: "wrap",
+        flexDirection: "row",
+        alignItems: "center",
+        marginBottom: 20,
+        padding: 10
+        
+    },
+
 })
 
 export default Profile;

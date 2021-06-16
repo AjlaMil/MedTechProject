@@ -34,7 +34,7 @@ export default function App() {
       <Bottom.Navigator
           initialRouteName = "Home"
           activeColor = '#02c7d1'
-          barStyle = { {backgroundColor: colors.lightGrey} }
+          barStyle = { {backgroundColor: colors.white} }
       >
       <Bottom.Screen 
           name="Profile" 
