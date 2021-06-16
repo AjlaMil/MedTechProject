@@ -15,7 +15,7 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async() => {
             const products = await getProducts();
-            
+            console.log("prrrrrrrrrrrrr")
             console.log(products)
             dispatch(setProducts(products))
         }
@@ -27,8 +27,8 @@ const Home = () => {
 
     return (
         <>
-        {
         
+        {
         products.map((x) => (
             <Product key={x.id} product={x} />
         
