@@ -1,7 +1,8 @@
 import * as React from "react"
+import { Text } from "react-native"
 
 const Cart = () => {
-    return <b>Cart</b>
+    return <Text>Cart</Text>
 };
 
 export default Cart;
