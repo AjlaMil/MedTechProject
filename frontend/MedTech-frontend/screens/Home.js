@@ -24,6 +24,8 @@ const Home = () => {
 
     const products = useSelector((state) => state.products.values)
 
+    const onProductDetailsClicked = (productId) => 
+        console.log(`Product clicked ${productId}`)
 
     return (
         <>
