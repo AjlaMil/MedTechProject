@@ -20,11 +20,11 @@ const Profile = () => {
                   <AntDesign name="bank" size={100} color={colors.primary} />
               </View>
               <View style={styles.username}>
-                  <Text style={{fontWeight: 'bold', fontSize: 25, color: colors.white, paddingVertical: 20}}>Comapany Name</Text>
+                  <Text style={{fontWeight: 'bold', fontSize: 25, color: colors.primary, paddingVertical: 20}}>Comapany Name</Text>
               </View>
               <View style={styles.userinfo}>
-                  <Text style={styles.textinfo}>Company City:</Text>
-                  <Text style={styles.textinfo}>E-Mail:</Text>
+                  <Text style={styles.textinfo}>Company City: <Text style={{color: colors.primary}}> Sarajevo </Text></Text>
+                  <Text style={styles.textinfo}>E-Mail: <Text style={{color:colors.primary}}>mimo.medica@mimo.ba</Text></Text>
                   
               </View>
         </View>
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        backgroundColor: colors.primary
+        backgroundColor: colors.white
     },
     title: {
         fontSize: 28,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
         borderRadius: 15,
         borderWidth: 2,
-        borderColor: 'silver'
+        borderColor: 'silver',
     },
     textinfo: {
         fontSize: 15,

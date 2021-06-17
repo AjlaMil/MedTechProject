@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        backgroundColor: colors.primary
+        backgroundColor: colors.white
     },
     tinyLogo: {
         width: 50,
