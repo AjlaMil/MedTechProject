@@ -17,7 +17,7 @@ const Profile = () => {
         </View>
         <View style={styles.headercontainer}>
               <View style={styles.userlogo}>
-                  <AntDesign name="bank" size={100} color={colors.primary} />
+                  <AntDesign name="user" size={100} color={colors.primary} />
               </View>
               <View style={styles.username}>
                   <Text style={{fontWeight: 'bold', fontSize: 25, color: colors.primary, paddingVertical: 20}}>Comapany Name</Text>
