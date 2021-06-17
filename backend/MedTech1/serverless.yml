@@ -29,6 +29,15 @@ functions:
       - httpApi:
           path: /addToCart
           method: post
+  
+  getUser:
+    handler: functions/getUser.handler
+    events:
+      - httpApi:
+          path: /getUser/{id}
+          method: get
+
+
 
   createProduct:
     handler: functions/createProduct.handler
@@ -78,20 +87,6 @@ functions:
       - httpApi:
           path: /placeOrder
           method: post
-
-  rateProduct:
-    handler: functions/rateProduct.handler
-    events:
-      - httpApi:
-          path: /rateProduct
-          method: post
-
-  contactVendor:
-    handler: functions/contactVendor.handler
-    events:
-      - httpApi:
-          path: /contactVendor
-          method: get
 
   searchProduct:
     handler: functions/searchProduct.handler
