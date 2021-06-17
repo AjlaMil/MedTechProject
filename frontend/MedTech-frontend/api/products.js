@@ -9,4 +9,4 @@ const getProducts = async () => {
     return json.data.products
 }
 
-export { getProducts }
+export { getProducts };
