@@ -28,6 +28,7 @@ const Home = () => {
         console.log(`Product clicked ${productId}`)
 
     return (
+        
         <>
         
         {
