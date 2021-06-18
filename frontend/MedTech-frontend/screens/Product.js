@@ -2,12 +2,12 @@ import * as React from "react"
 import { Button, View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import colors from "../config/colors";
 
-const Product = ({ product }) => { 
+const Product = ({ product, navigation }) => { 
     
 
     return(
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>{}}>
+            <TouchableOpacity onPress={()=>{navigation.navigate("Detail", {productId: product.id})}}>
                 <View style={styles.cardHeader}>
                     <Text style={styles.prodName} numberOfLines={2} ellipsizeMode='tail'>{product.name}</Text>
                     <TouchableOpacity style= {styles.button}>
@@ -24,10 +24,6 @@ const Product = ({ product }) => {
                         source={require('../assets/masina.jpg')}
                     />
                 </View>
-                
-                
-                
-                
             </TouchableOpacity>
         </View>
     )

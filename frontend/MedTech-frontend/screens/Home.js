@@ -1,4 +1,3 @@
-import { createStackNavigator } from "@react-navigation/stack"
 import React, { useEffect } from "react";
 import { Button, Text, View, StyleSheet, Image } from "react-native";
 import { useSelector, useDispatch } from "react-redux"
@@ -8,9 +7,9 @@ import { setProducts } from "../store/productsSlice"
 
 import colors from "../config/colors"
 
-const Stack = createStackNavigator()
 
-const Home = () => {
+
+const Home = ({ navigation }) => {
 
     const dispatch = useDispatch()
 
@@ -41,7 +40,7 @@ const Home = () => {
             <>
                 {
                 products.map((x) => (
-                    <Product key={x.id} product={x} />
+                    <Product key={x.id} product={x} navigation={navigation}/>
                 ))}
             </>
         </View>

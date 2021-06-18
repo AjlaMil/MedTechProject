@@ -19,6 +19,7 @@ import LoginScreen from "./screens/Login"
 import CartScreen from "./screens/Cart"
 import { Provider } from 'react-redux';
 import { store } from './store/productsSlice'
+import ItemScreen from './screens/Item';
 
 
 
@@ -32,7 +33,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
       <Bottom.Navigator
-          initialRouteName = "Home"
+          initialRouteName = "Item"
           activeColor = '#02c7d1'
           barStyle = { {backgroundColor: colors.white} }
       >
@@ -47,8 +48,8 @@ export default function App() {
           }}
           />
       <Bottom.Screen 
-          name="Home" 
-          component={HomeScreen} 
+          name="Item" 
+          component={ItemScreen} 
           options = {{
             tabBarLabel: 'Home',
             tabBarIcon : ({color}) => (
