@@ -1,10 +1,15 @@
 "use strict"
 
 const http = require("../utils/http")
-const data = require("../data")
+
+const { connect } = require("../db/connection")
+const  Product  = require("../db/productSchema")
 
 module.exports.handler = async (event) => {
 
- 
-    return http.ok({ products: data })
+    await connect();
+
+    const products = await Product.find();
+    
+    return http.ok({ products })
 } 
