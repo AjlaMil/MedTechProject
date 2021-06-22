@@ -8,6 +8,7 @@ module.exports.handler = async (event) => {
 
     try{
         
+
         console.log(Product)
 
         const { name, vendor, brand, price, quantity, description, services, picture } = JSON.parse(event.body)
