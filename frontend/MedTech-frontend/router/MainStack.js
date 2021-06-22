@@ -23,7 +23,8 @@ const MainStack = () => {
   const Stack = createStackNavigator();
 
   const user = useSelector((state) => {
-    return state.user;
+    console.log(user);
+    return state.user.user;
   });
   return (
     <NavigationContainer>
@@ -34,19 +35,16 @@ const MainStack = () => {
           barStyle={{ backgroundColor: colors.white }}
         >
           <Bottom.Screen
-            name="Profile"
-            component={ProfileScreen}
+            name="Cart"
+            component={CartScreen}
             options={{
-              tabBarLabel: "Profile",
+              tabBarLabel: "Cart",
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons
-                  name="account"
-                  color={color}
-                  size={26}
-                />
+                <MaterialCommunityIcons name="cart" color={color} size={26} />
               ),
             }}
           />
+
           <Bottom.Screen
             name="Item"
             component={ItemScreen}
@@ -58,12 +56,16 @@ const MainStack = () => {
             }}
           />
           <Bottom.Screen
-            name="Cart"
-            component={CartScreen}
+            name="Profile"
+            component={ProfileScreen}
             options={{
-              tabBarLabel: "Cart",
+              tabBarLabel: "Profile",
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="cart" color={color} size={26} />
+                <MaterialCommunityIcons
+                  name="account"
+                  color={color}
+                  size={26}
+                />
               ),
             }}
           />
