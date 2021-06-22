@@ -15,6 +15,13 @@ functions:
       - httpApi:
           path: /getProducts
           method: get
+  
+  getUsers:
+    handler: functions/getUsers.handler
+    events:
+      - httpApi:
+          path: /getUsers
+          method: get
 
   getProductById:
     handler: functions/getProductById.handler
@@ -42,35 +49,29 @@ functions:
     events:
       - httpApi:
           path: /deleteProduct/{id}
-          method: delete
+          method: delete    
 
-  signUp:
-    handler: functions/signUp.handler
+  getUser:
+    handler: functions/getUser.handler
     events:
       - httpApi:
-          path: /signUp
+          path: /getUsers/{id}
+          method: get
+
+  createUser:
+    handler: functions/createUser.handler
+    events:
+      - httpApi:
+          path: /createUser
           method: post
   
-  signIn:
-    handler: functions/signIn.handler
-    events:
-      - httpApi:
-          path: /signIn
-          method: get        
-
   addToCart:
     handler: functions/addToCart.handler
     events:
       - httpApi:
           path: /addToCart
           method: post
-  
-  checkout:
-    handler: functions/checkout.handler
-    events:
-      - httpApi:
-          path: /checkout
-          method: post
+
 
   placeOrder:
     handler: functions/placeOrder.handler
@@ -79,42 +80,6 @@ functions:
           path: /placeOrder
           method: post
 
-  rateProduct:
-    handler: functions/rateProduct.handler
-    events:
-      - httpApi:
-          path: /rateProduct
-          method: post
-
-  contactVendor:
-    handler: functions/contactVendor.handler
-    events:
-      - httpApi:
-          path: /contactVendor
-          method: get
-
-  searchProduct:
-    handler: functions/searchProduct.handler
-    events:
-      - httpApi:
-          path: /searchProduct
-          method: get
-
-
-# Primjer funckije sa casa (nije dio appa)
-  get:
-    handler: functions/hello.handler
-    events: 
-      - httpApi:
-          path: /
-          method: get
-
-  create:
-    handler: functions/create.handler
-    events: 
-      - httpApi:
-          path: /
-          method: post
 
 plugins:
   - serverless-offline
