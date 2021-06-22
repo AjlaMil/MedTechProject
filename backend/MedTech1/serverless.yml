@@ -41,7 +41,7 @@ functions:
     handler: functions/deleteProduct.handler
     events:
       - httpApi:
-          path: /deleteProduct
+          path: /deleteProduct/{id}
           method: delete
 
   signUp:
