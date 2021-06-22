@@ -21,7 +21,7 @@ export default function WelcomeScreen({navigation}) {
         <Text style={styles.logotext}> MedTech </Text>
       </View>
       <View style={styles.container3}>
-          <View>
+          <View style={{marginLeft: 35, }}>
             <Text style={styles.title}>Welcome to MedTech!</Text>
             <Text style={styles.info}>Everything that one klinic needs!</Text>
           </View>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
         
       },
       logotext:{
@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary,
         width: '50%',
         alignSelf: 'flex-end',
-        bottom: 80
+        bottom: 80,
+        marginRight: 20
       },
       logo: {
         width: 200,
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
       },
       button_text:{
         textAlign: 'center',
-        fontSize: 24,
+        fontSize: 20,
         color: colors.white,
         fontWeight: 'bold'
       }
