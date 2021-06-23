@@ -6,6 +6,7 @@ const mongoose = require("mongoose")
             email: String,
             password: String,
             address: String,
+            role: String,
             vatnum: Number,
             cart: Array,
             purchased: Array

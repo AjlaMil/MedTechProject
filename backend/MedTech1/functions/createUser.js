@@ -13,9 +13,9 @@ module.exports.handler = async (event) => {
 
         console.log(User)
 
-        const { name, email, password, address, vatnum, cart, purchased } = JSON.parse(event.body)
+        const { name, email, password, address, role, vatnum, cart, purchased } = JSON.parse(event.body)
         
-        console.log(name, email, password, address, vatnum, cart, purchased)
+        console.log(name, email, password, address, role, vatnum, cart, purchased)
 
         const newUser = new User({
 
@@ -23,6 +23,7 @@ module.exports.handler = async (event) => {
             email: email,
             password: password,
             address: address,
+            role: role,
             vatnum: vatnum,
             cart: cart,
             purchased: purchased
