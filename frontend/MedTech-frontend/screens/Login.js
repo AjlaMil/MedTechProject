@@ -25,7 +25,7 @@ export default function LoginScreen({ navigation }) {
         email: email,
         password: password,
       };
-      const response = await fetch(`localhost:3000/getUser`, {
+      const response = await fetch("localhost:3000/getUser", {
         method: "POST",
         body: JSON.stringify(userData),
       });
@@ -37,7 +37,9 @@ export default function LoginScreen({ navigation }) {
     } catch (error) {}
   };
 
-  const onLoginPress = () => {};
+  const onLoginPress = () => {
+    getUser();
+  };
 
   return (
     <View style={styles.container}>

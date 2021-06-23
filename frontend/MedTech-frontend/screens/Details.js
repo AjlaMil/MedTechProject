@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { useSelector } from "react-redux";
 import colors from "../config/colors";
 
@@ -7,47 +14,52 @@ const Details = ({ route }) => {
   const products = useSelector((state) => state.products.values);
   const item = products.find((p) => p._id === route.params.productId);
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.prodName}>{item.name}</Text>
-        <Text style={styles.priceTag}>
-          Price: <Text style={{ color: colors.primary }}>${item.price}</Text>
-        </Text>
-      </View>
-      <Image style={styles.picture} source={require("../assets/masina.jpg")} />
-      <View style={styles.detailContainer}>
-        <Text
-          style={{
-            fontSize: 15,
-            color: colors.darkGrey,
-            fontWeight: "bold",
-            marginBottom: 10,
-          }}
-        >
-          {" "}
-          Description:{" "}
-        </Text>
-        <Text style={{ color: colors.darkGrey }}> {item.description}</Text>
-      </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Text
-            style={{ color: colors.white, fontWeight: "600" }}
-            onPress={() => {}}
-          >
-            Add to Cart
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.prodName}>{item.name}</Text>
+          <Text style={styles.priceTag}>
+            Price: <Text style={{ color: colors.primary }}>${item.price}</Text>
           </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        </View>
+        <Image
+          style={styles.picture}
+          source={require("../assets/masina.jpg")}
+        />
+        <View style={styles.detailContainer}>
           <Text
-            style={{ color: colors.white, fontWeight: "600" }}
-            onPress={() => {}}
+            style={{
+              fontSize: 15,
+              color: colors.darkGrey,
+              fontWeight: "bold",
+              marginBottom: 10,
+            }}
           >
-            Buy Now
+            {" "}
+            Description:{" "}
           </Text>
-        </TouchableOpacity>
+          <Text style={{ color: colors.darkGrey }}> {item.description}</Text>
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button}>
+            <Text
+              style={{ color: colors.white, fontWeight: "600" }}
+              onPress={() => {}}
+            >
+              Add to Cart
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text
+              style={{ color: colors.white, fontWeight: "600" }}
+              onPress={() => {}}
+            >
+              Buy Now
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

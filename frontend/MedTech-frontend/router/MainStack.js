@@ -24,7 +24,7 @@ const MainStack = () => {
 
   const user = useSelector((state) => {
     console.log(user);
-    return state.user.user;
+    return state.user;
   });
   return (
     <NavigationContainer>
