@@ -36,7 +36,7 @@ const Profile = () => {
               paddingVertical: 20,
             }}
           >
-            Comapany Name
+            Company Name
           </Text>
         </View>
         <View style={styles.userinfo}>

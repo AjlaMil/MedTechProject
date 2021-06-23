@@ -23,7 +23,7 @@ export default function WelcomeScreen({navigation}) {
       <View style={styles.container3}>
           <View style={{marginLeft: 35, }}>
             <Text style={styles.title}>Welcome to MedTech!</Text>
-            <Text style={styles.info}>Everything that one klinic needs!</Text>
+            <Text style={styles.info}>Everything that one clinic needs.</Text>
           </View>
         
         <TouchableOpacity 

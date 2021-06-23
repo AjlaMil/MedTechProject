@@ -23,8 +23,10 @@ const MainStack = () => {
   const Stack = createStackNavigator();
 
   const user = useSelector((state) => {
+    console.log("whereeeeee issss diiiiiiiiiss")
     console.log(user);
-    return state.user.user;
+    //return state.user.user;
+    return state.user;
   });
   return (
     <NavigationContainer>
