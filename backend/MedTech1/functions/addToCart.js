@@ -12,7 +12,7 @@ module.exports.handler = async (event) => {
         console.log(event.body)
 
         const { user, item } = JSON.parse(event.body)
-        
+
         // console.log("id: " + id)
         // if(!id) return http.unprocessableEntity()  
 
@@ -26,7 +26,7 @@ module.exports.handler = async (event) => {
     
 
 
-        User.findByIdAndUpdate(id, { $set: { name: 'jason bourne' }}, options, callback)
+        User.findByIdAndUpdate(user, { $set: { cart: 'jason bourne' }}, options, callback)
 
         return http.ok(`${id} added to cart.`)
     } 
