@@ -13,10 +13,10 @@ import ItemScreen from "../screens/Item";
 
 import WelcomeScreen from "../screens/WelcomeScreen";
 import RegistrationScreen from "../screens/Registration";
-import HomeScreen from "../screens/Home";
 import ProfileScreen from "../screens/Profile";
 import LoginScreen from "../screens/Login";
 import CartScreen from "../screens/Cart";
+import MyProductsScreen from "../screens/MyProducts";
 import { useSelector } from "react-redux";
 const MainStack = () => {
   const Bottom = createMaterialBottomTabNavigator();
@@ -25,8 +25,8 @@ const MainStack = () => {
   const user = useSelector((state) => {
     console.log("whereeeeee issss diiiiiiiiiss")
     console.log(user);
-    //return state.user.user;
-    return state.user;
+    return state.user.user;
+    //return state.user;
   });
   return (
     <NavigationContainer>
@@ -36,16 +36,28 @@ const MainStack = () => {
           activeColor="#02c7d1"
           barStyle={{ backgroundColor: colors.white }}
         >
-          <Bottom.Screen
-            name="Cart"
-            component={CartScreen}
-            options={{
-              tabBarLabel: "Cart",
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="cart" color={color} size={26} />
-              ),
-            }}
-          />
+        {user.role === 'clinic' ? 
+        <Bottom.Screen
+        name="Cart"
+        component={CartScreen}
+        options={{
+          tabBarLabel: "Cart",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="cart" color={color} size={26} />
+          ),
+        }}
+      />  :  
+       <Bottom.Screen
+      name="My products"
+      component={MyProductsScreen}
+      options={{
+        tabBarLabel: "My Products",
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="cart" color={color} size={26} />
+        ),
+      }}
+    />
+      }
 
           <Bottom.Screen
             name="Item"

@@ -8,7 +8,10 @@ const mongoose = require("mongoose")
             address: String,
             role: String,
             vatnum: Number,
-            cart: Array,
+            cart:  {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'products',
+              },
             purchased: Array
         })
 

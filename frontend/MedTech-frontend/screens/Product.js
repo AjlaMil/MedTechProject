@@ -8,9 +8,12 @@ import {
   Image,
 } from "react-native";
 import colors from "../config/colors";
+import { setcart } from "../store/cartSlice";
+import { useDispatch } from "react-redux";
 
-const Product = ({ product, navigation }) => {
-  console.log(product._id);
+const Product = ({ product, navigation, clickable }) => {
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -22,14 +25,18 @@ const Product = ({ product, navigation }) => {
           <Text style={styles.prodName} numberOfLines={2} ellipsizeMode="tail">
             {product.name}
           </Text>
-          <TouchableOpacity style={styles.button}>
+        {clickable && 
+        <TouchableOpacity  style={styles.button}>
             <Text
               style={{ color: colors.white, fontWeight: "600" }}
-              onPress={() => {}}
+              onPress={() => {
+                dispatch(setcart(product["_id"]))
+              }}
             >
               Add to Cart
             </Text>
           </TouchableOpacity>
+        }  
         </View>
         <View style={styles.cardBody}>
           <View style={{ padding: 5, alignItems: "flex-start" }}>

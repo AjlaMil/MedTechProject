@@ -17,7 +17,8 @@ functions:
           method: get
   
   getUsers:
-    handler: functions/getUsers.handler
+    handler: 
+      - functions/getUsers.handler
     events:
       - httpApi:
           path: /getUsers
@@ -58,26 +59,34 @@ functions:
           path: /getUsers/{id}
           method: get
 
-  getUserr:
-    handler: functions/getUserr.handler
-    events:
-      - httpApi:
-          path: /getUserr
-          method: get
-
   createUser:
     handler: functions/createUser.handler
     events:
       - httpApi:
           path: /createUser
           method: post
-  
+
+  loginUser:
+    handler: functions/loginUser.handler
+    events:
+      - httpApi:
+          path: /loginUser
+          method: post
+
+  registerUser:
+      handler: functions/registerUser.handler
+      events:
+        - httpApi:
+            path: /registerUser
+            method: post
+
+
   addToCart:
     handler: functions/addToCart.handler
     events:
       - httpApi:
-          path: /addToCart/{id}
-          method: put
+          path: /addToCart
+          method: post
 
 
   placeOrder:

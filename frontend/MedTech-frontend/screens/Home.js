@@ -26,6 +26,7 @@ const Home = ({ navigation }) => {
   }, []);
 
   const products = useSelector((state) => state.products.values);
+  const userRole = useSelector((state) => state.user.role);
 
   return (
     <ScrollView style={styles.container}>
@@ -38,7 +39,7 @@ const Home = ({ navigation }) => {
       <View style={{ alignItems: "center", alignSelf: "stretch" }}>
         <>
           {products.map((x) => {
-            return <Product key={x._id} product={x} navigation={navigation} />;
+            return <Product key={x._id} clickable={true} product={x} navigation={navigation} />;
           })}
         </>
       </View>

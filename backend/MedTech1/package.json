@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.6",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.13"
   },
   "devDependencies": {
+    "serverless-middleware": "0.0.14",
     "serverless-offline": "^7.0.0"
   },
   "scripts": {

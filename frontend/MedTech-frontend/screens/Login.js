@@ -8,7 +8,8 @@ import {
   StyleSheet,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-
+import { useDispatch } from "react-redux";
+import { login } from "../store/userSlice";
 import colors from "../config/colors";
 
 export default function LoginScreen({ navigation }) {
@@ -19,25 +20,28 @@ export default function LoginScreen({ navigation }) {
     navigation.navigate("Registration");
   };
 
+    const dispatch = useDispatch();
+
   const getUser = async () => {
     try {
       const userData = {
         email: email,
         password: password,
       };
-      const response = await fetch(`localhost:3000/getUser`, {
+      const response = await fetch(`http://localhost:3000/loginUser`, {
         method: "POST",
         body: JSON.stringify(userData),
       });
 
       const data = await response.json();
-      dispatch(login(userData));
+      dispatch(login({email:email, token:data.token, role: data.role}));
 
-      console.log(data);
     } catch (error) {}
   };
 
-  const onLoginPress = () => {};
+  const onLoginPress = () => {
+    getUser()
+  };
 
   return (
     <View style={styles.container}>

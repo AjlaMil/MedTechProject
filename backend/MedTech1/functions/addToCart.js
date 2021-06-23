@@ -2,16 +2,26 @@
 
 const http = require("../utils/http")
 const  Product  = require("../db/productSchema")
+const { connect } = require("../db/connection")
 const User  = require("../db/userSchema")
 
 module.exports.handler = async (event) => {
 
     try{
+        
+        await connect();
 
+        const { userId, item } = JSON.parse(event.body)
 
-        console.log(event.body)
+         const user = await User.findOne({ _id: userId});
+         const product = await Product.findOne({ _id: item});
+        // await User.findByIdAndUpdate(user.id, {
+        //     $push: { cart: product._id },
+        //   });
 
-        const { user, item } = JSON.parse(event.body)
+          await Product.findByIdAndUpdate(product.id, {
+            $push: { createdBy: user._id },
+          });
 
         // console.log("id: " + id)
         // if(!id) return http.unprocessableEntity()  
@@ -26,13 +36,13 @@ module.exports.handler = async (event) => {
     
 
 
-        User.findByIdAndUpdate(user, { $set: { cart: 'jason bourne' }}, options, callback)
+        //User.findByIdAndUpdate(user, { $set: { cart: 'jason bourne' }}, options, callback)
 
-        return http.ok(`${id} added to cart.`)
+        return http.ok(`${item} added to cart.`)
     } 
     catch(error)
     {
-        return http.error()
+        return JSON.stringify(error)
     }
     
 }

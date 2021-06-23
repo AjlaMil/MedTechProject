@@ -24,7 +24,11 @@ const mongoose = require("mongoose")
             quantity: Number,
             description: String,
             services: Boolean,
-            picture: String
+            picture: String,
+            createdBy:  {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'users',
+              },
         })
 
 

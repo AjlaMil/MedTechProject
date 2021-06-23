@@ -24,6 +24,28 @@ const error = (message = "Internal server error.") => ({
   },
 })
 
+const errorLogin = (message = "User already exists.") => ({
+  
+  statusCode: 400,
+  body: JSON.stringify({
+    message: message,
+  }), 
+  headers: {
+    "content-type": "application/json",
+  },
+})
+
+const invalidLogin = (message = "Invalid credentials") => ({
+  
+  statusCode: 400,
+  body: JSON.stringify({
+    message: message,
+  }), 
+  headers: {
+    "content-type": "application/json",
+  },
+})
+
 const unprocessableEntity = () => ({
   statusCode: 422,
   body: JSON.stringify({
@@ -38,5 +60,7 @@ const unprocessableEntity = () => ({
 module.exports = {
     ok,
     error,
-    unprocessableEntity
+    unprocessableEntity,
+    errorLogin,
+    invalidLogin
 }
