@@ -6,14 +6,19 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
   Image,
+  Label,
   Button,
 } from "react-native";
 import colors from "../config/colors";
 import { AntDesign } from "@expo/vector-icons";
 import { logout } from "../store/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Profile = () => {
+  const user = useSelector((state) => {
+    return state.user.user;
+  });
+
   const dispatch = useDispatch();
   return (
     <KeyboardAvoidingView style={styles.container} behaviour="padding">
@@ -40,20 +45,14 @@ const Profile = () => {
           </Text>
         </View>
         <View style={styles.userinfo}>
-          <Text style={styles.textinfo}>
-            Company City:{" "}
-            <Text style={{ color: colors.primary }}> Sarajevo </Text>
-          </Text>
-          <Text style={styles.textinfo}>
+        <Text style={styles.textinfo}>
             E-Mail:{" "}
-            <Text style={{ color: colors.primary }}>mimo.medica@mimo.ba</Text>
+            <Text style={{ color: colors.primary }}>{user.email}</Text>
           </Text>
         </View>
-        <TouchableOpacity
-          onPress={() => dispatch(logout())}
-          style={{ width: 100, height: 50 }}
-        >
-          Log Out
+        
+         <TouchableOpacity style={styles.button} onPress={() => dispatch(logout())}>
+          <Text style={styles.buttonTitle}>Log out</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -72,6 +71,21 @@ const styles = StyleSheet.create({
     color: colors.black,
     alignSelf: "center",
     marginBottom: 10,
+  },
+  button: {
+    backgroundColor: colors.primary,
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 20,
+    height: 48,
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonTitle: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
   },
   headercontainer: {
     justifyContent: "center",

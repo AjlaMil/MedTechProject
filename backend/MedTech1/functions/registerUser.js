@@ -31,8 +31,8 @@ module.exports.handler = async (event) => {
           const salt = await bcrypt.genSalt(10);
           user.password = await bcrypt.hash(password, salt);
           await user.save();
-
-        return http.ok()
+  return http.ok()
+       
     }
     catch(error)
     {

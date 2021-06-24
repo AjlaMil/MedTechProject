@@ -9,10 +9,14 @@ import {
 } from "react-native";
 import colors from "../config/colors";
 import { setcart } from "../store/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Product = ({ product, navigation, clickable }) => {
   const dispatch = useDispatch();
+  // const user = useSelector((state) => {
+  //   console.log(state)
+  //   //return state.user;
+  //});
 
   return (
     <View style={styles.container}>

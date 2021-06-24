@@ -1,24 +1,17 @@
-import React, { useEffect } from "react"
+import React from "react"
 import {
-    Button,
-    Text,
-    View,
-    StyleSheet,
-    Image,
-    ScrollView,
+    StyleSheet
   } from "react-native";
 import colors from "../config/colors";
-import Product from "./Product";
-import { useSelector, useDispatch } from "react-redux";
 
 const MyProducts = () => {
 
     return (
       <div>
           <h2>My Products</h2>
-          <Button>
-              TEST
-          </Button>
+          <h4>
+           My products page will be implemented in the future.
+          </h4>
       </div>
     );
 };

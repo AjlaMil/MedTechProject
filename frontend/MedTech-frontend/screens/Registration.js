@@ -1,4 +1,4 @@
-import React, { useState, useDispatch } from "react";
+import React, { useState } from "react";
 import {
   Image,
   Text,
@@ -9,9 +9,9 @@ import {
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { RadioButton } from "react-native-paper";
-
+import { useDispatch } from "react-redux";
 import colors from "../config/colors";
-import { login } from "../store/userSlice";
+import { register } from "../store/userSlice";
 
 export default function RegistrationScreen({ navigation }) {
   const [companyName, setComapnyName] = useState("");
@@ -20,24 +20,29 @@ export default function RegistrationScreen({ navigation }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [jib, setJIB] = useState("");
-
+  const [checked,setChecked] = React.useState("first");
   const dispatch = useDispatch();
 
-  const setData = async () => {
+
+  const setData = async () => {  
     try {
       const userData = {
         name: companyName,
+        address: city,
         email: email,
+        vatnum: jib,
         password: password,
         address: city,
+        role : checked,
       };
-      const response = await fetch("localhost:3000/createUser", {
+      const response = await fetch(`http://localhost:3000/registerUser`, {
         method: "POST",
         body: JSON.stringify(userData),
       });
 
+
       const data = await response.json();
-      dispatch(login(userData));
+      dispatch(register(data));
 
       console.log(data);
     } catch (error) {}
@@ -54,8 +59,6 @@ export default function RegistrationScreen({ navigation }) {
       return;
     }
   };
-
-  const [checked, setChecked] = React.useState("first");
 
   return (
     <View style={styles.container}>
@@ -85,6 +88,7 @@ export default function RegistrationScreen({ navigation }) {
         <TextInput
           style={styles.input}
           placeholder="JIB"
+          keyboardType='numeric'
           placeholderTextColor="#aaaaaa"
           onChangeText={(text) => setJIB(text)}
           value={jib}
@@ -129,16 +133,16 @@ export default function RegistrationScreen({ navigation }) {
           }}
         >
           <RadioButton
-            value="first"
+            value="clinic"
             placeholder="Klinic"
-            status={checked === "first" ? "checked" : "unchecked"}
-            onPress={() => setChecked("first")}
+            status={checked === "clinic" ? "checked" : "unchecked"}
+            onPress={() => {setChecked("clinic");}}
           />
           <RadioButton
-            value="second"
+            value="vendor"
             placeholder="Vendor"
-            status={checked === "second" ? "checked" : "unchecked"}
-            onPress={() => setChecked("second")}
+            status={checked === "vendor" ? "checked" : "unchecked"}
+            onPress={() => {setChecked("vendor")}}
           />
         </View>
         <View
