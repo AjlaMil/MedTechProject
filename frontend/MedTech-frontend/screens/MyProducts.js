@@ -10,7 +10,7 @@ const MyProducts = () => {
       <div>
           <h2>My Products</h2>
           <h4>
-           My products page will be implemented in the future.
+           My products page will be implemented in the future. This page is supposed to have the option to add a new product, delete product and view products for sale.
           </h4>
       </div>
     );
